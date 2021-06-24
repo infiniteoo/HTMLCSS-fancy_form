@@ -23,3 +23,27 @@ const inputLabel = document.querySelector("#input-label");
 const inputProgress = document.querySelector("#input-progress");
 const progress = document.querySelector("#progress-bar");
 
+// EVENTS
+document.addEventListener("DOMContentLoaded", getQuestion);
+
+// FUNCTIONS
+
+// get question from array and add to markup
+function getQuestion() {
+  // get current question
+  inputLabel.innerHTML = questions[position].question;
+  // get current type
+  inputField.type = questions[position].type || "text";
+  // get current answer
+  inputField.value = questions[position].answer || "";
+  // focus on element
+  inputField.focus();
+
+  // set progres bar width - variable to the questions length
+  progress.style.width = (position * 100) / questions.length + "%";
+
+  // add user icon or back arrow depending on question
+  prevBtn.className = position ? "fas fa-arrow-left" : "fas fa-user";
+
+  showQuestion();
+}
