@@ -47,3 +47,10 @@ function getQuestion() {
 
   showQuestion();
 }
+
+// display question to user
+function showQuestion() {
+  inputGroup.style.opacity = 1;
+  inputProgress.style.transition = "";
+  inputProgress.style.width = "100%";
+}
